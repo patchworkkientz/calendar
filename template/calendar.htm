@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <!-- saved from url=(0036)https://www.sphere.ms/front-end-test -->
-<html lang="en-US" class=" no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en-US" class=" no-touch">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Sphere - Simplifying Life</title>
 		<meta name="description" content="Sphere simplifies your life through automation.">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0001">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0001 user-scalable=no">
 		<link rel="icon" type="image/png" href="https://www.sphere.ms/images/icon.png">
-		<link href="../public/screen.css" rel="stylesheet" type="text/css" media="screen">
-		<link href="/assets/screen.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="../public/style/screen.css" rel="stylesheet" type="text/css" media="screen">
+		<link href="/assets/style/screen.css" rel="stylesheet" type="text/css" media="screen">
 	</head>
 	<body>
 	<header class="nav-height">
@@ -1100,8 +1102,16 @@
 	</div>
 	<div id="myModal" class="modal">
 		<div class="modal-content">
-			<div id="day"></div>
-			<select id="start">
+			<select id="day" data-value="">
+				<option value="sun" class="menu-list">Sunday</option>
+				<option value="mon" class="menu-list">Monday</option>
+				<option value="tue" class="menu-list">Tuesday</option>
+				<option value="wed" class="menu-list">Wednesday</option>
+				<option value="thu" class="menu-list">Thursday</option>
+				<option value="fri" class="menu-list">Friday</option>
+				<option value="sat" class="menu-list">Saturday</option>
+			</select>
+			<select id="start" class="menu-list">
 				<option value="12am">12 AM</option>
 				<option value="1230am">12:30 AM</option>
 				<option value="1am">1 AM</option>
@@ -1151,8 +1161,8 @@
 				<option value="11pm">11 PM</option>
 				<option value="1130pm">11:30 PM</option>
 			</select>
-			<select id="end">
-				<option selected>choose an end time</option>
+			<select id="end" class="menu-list">
+				<option selected>choose</option>
 				<option value="12am">12 AM</option>
 				<option value="1230am">12:30 AM</option>
 				<option value="1am">1 AM</option>
@@ -1202,19 +1212,19 @@
 				<option value="11pm">11 PM</option>
 				<option value="1130pm">11:30 PM</option>
 			</select>
-			<input value="submit" type="button" onclick="highlighter();"/>
-			<input value="&times;" type="button" onclick="exitModal();"/>
+			<input id="sub" class="submitBtn button" value="submit" type="button" onclick="highlighter();"/>
+			<input id="clo" class="closeBtn close" value="&times;" type="button" onclick="exitModal();"/>
 		</div>
 	</div>
-		<script type="text/javascript" src="../public/jquery.min.js"></script>
-		<script type="text/javascript" src="../public/no-touch.js"></script>
-		<script type="text/javascript" src="../public/shiftcheckbox.js"></script>
-		<script type="text/javascript" src="../public/dragcheckbox.js"></script>
-		<script type="text/javascript" src="../public/touch.js"></script>
-		<script type="text/javascript" src="/assets/jquery.min.js"></script>
-		<script type="text/javascript" src="/assets/no-touch.js"></script>
-		<script type="text/javascript" src="/assets/shiftcheckbox.js"></script>
-		<script type="text/javascript" src="/assets/dragcheckbox.js"></script>
-		<script type="text/javascript" src="/assets/touch.js"></script>
+		<script type="text/javascript" src="../public/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../public/js/no-touch.js"></script>
+		<script type="text/javascript" src="../public/js/shiftcheckbox.js"></script>
+		<script type="text/javascript" src="../public/js/dragcheckbox.js"></script>
+		<script type="text/javascript" src="../public/js/touch.js"></script>
+		<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/assets/js/no-touch.js"></script>
+		<script type="text/javascript" src="/assets/js/shiftcheckbox.js"></script>
+		<script type="text/javascript" src="/assets/js/dragcheckbox.js"></script>
+		<script type="text/javascript" src="/assets/js/touch.js"></script>
 	</body>
 </html>

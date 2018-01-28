@@ -1,9 +1,6 @@
 /**
  * Created by patch on 1/27/18.
  */
-function menuPopUp(e) {
-    $("body").css({"background": "red"});
-}
 
 var timeSlot = [].slice.call(document.getElementsByClassName("time"));
 var modal = document.getElementById("myModal");
@@ -11,23 +8,41 @@ var checkbox = document.querySelectorAll('input[type="checkbox"]');
 var select = document.getElementById("start");
 var next = document.getElementById("end");
 
+var days = {"sun": "Sunday", "mon": "Monday", "tue": "Tuesday", "wed": "Wednesday", "thu": "Thursday", "fri": "Friday", "sat": "Saturday"};
+
 timeSlot.forEach(function (element, index){
     element.addEventListener("touchstart", function() {
         modal.style.display = "block";
         var t = timeSlot[index].childNodes[1].id;
-        document.getElementById("day").innerText = t.substring(0, 3);
+        for (var key in days) {
+            if (key == t.substring(0, 3)) {
+                document.getElementById("day").innerText = days[key];
+            }
+        }
+        document.getElementById("day").setAttribute("data-value", t.substring(0, 3));
         t = t.substring(3, t.length);
         setSelectedValue(select, t);
+        document.getElementById("sub").disabled = true; // disable some things for a moment so not clicked when checkbox behind is pressed
+        document.getElementById("clo").disabled = true;
+        document.getElementById("start").disabled = true;
+        document.getElementById("end").disabled = true;
+        setTimeout(function() {
+            document.getElementById("sub").disabled = false;
+            document.getElementById("clo").disabled = false;
+            document.getElementById("start").disabled = false;
+            document.getElementById("end").disabled = false;
+        }, 500);
     });
 });
 
 function exitModal() {
+    next.options[0].selected = true;
     modal.style.display = "none";
 }
 
 function highlighter() {
     var startTime, endTime;
-    var day = document.getElementById("day").textContent;
+    var day = document.getElementById("day").getAttribute('data-value');
     var dayAndTime = [], all = [];
     for (var i = 0; i < checkbox.length; i++) {
         for (var j = 0; j < select.options.length; j++) {
@@ -61,6 +76,7 @@ function highlighter() {
             checkbox[i].checked = true;
         }
     }
+    next.options[0].selected = true;
     modal.style.display = "none";
 }
 
